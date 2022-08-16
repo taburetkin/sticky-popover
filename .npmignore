@@ -1,0 +1,6 @@
+lib
+node_modules
+sandbox
+test
+tooling
+.babelrc
