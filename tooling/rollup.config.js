@@ -5,6 +5,17 @@ module.exports =
 	{
 		input: './tooling/sticky-popover-full.js',
 		output: {
+			file: './lib/sticky-popover-full-iife.js',
+			format: 'iife',
+			name: 'StickyPopover'
+		},
+		plugins:[ 
+			terser()
+		]
+	},
+	{
+		input: './tooling/sticky-popover-full.js',
+		output: {
 			file: './lib/sticky-popover-full-umd.js',
 			format: 'umd',
 			name: 'sticky-popover'
