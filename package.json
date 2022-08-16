@@ -1,8 +1,9 @@
 {
   "name": "sticky-popover",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "frontend api for positioning tooltip/popover content near the reference one",
   "main": "index.js",
+  "browser": "lib/sticky-popover-full-umd.js",
   "author": "dimtabu<dima.taburetkin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
