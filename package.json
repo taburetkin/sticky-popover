@@ -1,0 +1,33 @@
+{
+  "name": "sticky-popover",
+  "version": "0.0.1",
+  "description": "frontend api for positioning tooltip/popover content near the reference one",
+  "main": "index.js",
+  "author": "dimtabu<dima.taburetkin@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/register": "^7.17.7",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "chai": "^4.3.6",
+    "esm": "^3.2.25",
+    "mocha": "^10.0.0",
+    "module-alias": "^2.2.2",
+    "nyc": "^15.1.0",
+    "rollup": "^2.77.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0"
+  },
+  "scripts": {
+    "test": "mocha --config ./test/.mocharc.json",
+    "test-w": "mocha -w --config ./test/.mocharc.json",
+    "coverage": "nyc --nycrc-path ./test/nyc.config.js yarn test",
+    "esm": "rollup ./index.js --file ./sticky-popover.js --format esm",
+    "esm-sandbox": "rollup ./index.js --file ./sandbox/lib.js --format esm",
+    "esm-prod": "rollup --config ./tooling/rollup.config.js"
+  }
+}
