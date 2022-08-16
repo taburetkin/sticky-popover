@@ -1,4 +1,6 @@
 .coverage
 .nyc_output
 node_modules
-sandbox
+sandbox/node_modules
+sandbox/yarn.lock
+sandbox/yarn-error.log

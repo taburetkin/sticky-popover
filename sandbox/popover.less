@@ -1,0 +1,99 @@
+@SIDES: 'left', 'top', 'right', 'bottom';
+@OPPOSITE_SIDES: {
+	left: 'right';
+	top: 'bottom';
+	right: 'left';
+	bottom: 'top';
+}
+
+.popover-arrow-size(@size: 10px, @offset: @size / 2, @offsetAlt: @offset) {
+	> .arrow {
+		width: @size;
+		height: @size;
+	}
+
+	&[data-side="left"], &[data-side="right"] {
+		
+		&[data-align="start"] {
+			> .arrow {
+				top: @offsetAlt;
+			}
+		}
+
+		&[data-align="end"] {
+			> .arrow {
+				bottom: @offsetAlt;
+			}
+		}
+
+		&[data-align="center"] {
+			> .arrow {
+				top: 50%;
+				transform: translateY(-50%), rotate(45deg);
+			}
+		}
+
+	}
+
+	&[data-side="top"], &[data-side="bottom"] {
+		
+		&[data-align="start"] {
+			> .arrow {
+				left: @offsetAlt;
+			}
+		}
+
+		&[data-align="end"] {
+			> .arrow {
+				right: @offsetAlt;
+			}
+		}
+		
+		&[data-align="center"] {
+			> .arrow {
+				left: 50%;
+				transform: translateX(-50%), rotate(45deg);
+			}
+		}
+
+
+	}
+
+	&[data-side="left"] > .arrow {
+		right: -@offset;
+	}
+	&[data-side="right"] > .arrow {
+		left: -@offset;
+	}
+	&[data-side="bottom"] > .arrow {
+		top: -@offset;
+	}
+	&[data-side="top"] > .arrow {
+		bottom: -@offset;
+	}	
+}
+
+.popup-container {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	max-width: 400px;
+
+	.content {
+		padding: 15px;
+		font-family:sans-serif;
+		color: white;
+		background-color: black;
+	}
+
+	> .arrow {
+		position: absolute;
+		background-color: black;
+		transform: rotate(45deg);
+	}
+
+	.popover-arrow-size(@size: 10px, @offset: 5px, @offsetAlt: 15px);
+
+
+}

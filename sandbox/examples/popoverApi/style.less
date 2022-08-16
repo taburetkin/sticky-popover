@@ -1,0 +1,31 @@
+body.api {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.item {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		> :not(:first-child) {
+			border-top: 1px solid #000020;
+		}
+		header {
+			width: 100%;
+			padding: 5px;
+			text-align: center;
+		}
+		.cell {
+			padding: 5px;
+			flex-basis: 100% / 3;
+			flex-grow: 1;
+			text-align: center;
+			&:not(:last-child) {
+				border-right: 1px solid #000020;
+			}
+			&:Hover {
+				background-color: #00000010;
+			}
+		}
+	}
+}
