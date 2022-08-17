@@ -83,7 +83,7 @@ export class AbstractPopoverApi {
 		if (popoverCtx.showing === true) {
 			// we should destroy popover if its show strategy is `toggle` 
 			if (popoverCtx.toggleStrategy === true) {
-				this._removePopover(popoverCtx);
+				this.removePopover(popoverCtx);
 			}
 			// otherwise we are done.
 			return;
@@ -105,7 +105,7 @@ export class AbstractPopoverApi {
 		
 		const remove = () => {
 			singletons.remove(popoverCtx);
-			this._removePopover(popoverCtx);
+			this.removePopover(popoverCtx);
 			this._tryRemoveShowedSingleton(popoverCtx, false);
 		};
 		
@@ -131,7 +131,7 @@ export class AbstractPopoverApi {
 	
 	}
 
-	_removePopover (popoverContext) {
+	removePopover (popoverContext) {
 
 		this.cancelRemoving(popoverContext);
 		this.cancelShowing(popoverContext);
@@ -149,7 +149,7 @@ export class AbstractPopoverApi {
 		this.cancelShowing(popoverCtx);
 		if (popoverCtx.showing) {
 			this.cancelRemoving(popoverCtx);
-			popoverCtx.removeTimeout = setTimeout(() => this._removePopover(popoverCtx), removeDelay);
+			popoverCtx.removeTimeout = setTimeout(() => this.removePopover(popoverCtx), removeDelay);
 		}
 	}
 

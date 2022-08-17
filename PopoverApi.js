@@ -25,7 +25,13 @@ export class PopoverApi extends AbstractPopoverApi {
 				popover.show(showOptions);
 			},
 			remove() {
+				if (typeof this.beforeRemove === 'function') {
+					this.beforeRemove();
+				}
 				popover.hide();
+				if (typeof this.afterRemove === 'function') {
+					this.afterRemove();
+				}
 			},
 			...extend,
 		}
